@@ -23,18 +23,9 @@ function generateTable(table, data, type) {
       console.log(data[i].homeTeam.id)
       array_type = [
         data[i].homeTeam.name,
-        `<img src="https://crests.football-data.org/<${data[i].homeTeam.id}>.svg" alt="Logo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/<${data[i].awayTeam.id}>.svg" alt="Logo"/>`,
+        `<img src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" alt="Logo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/${data[i].awayTeam.id}.svg" alt="Logo"/>`,
         data[i].awayTeam.name
-        
 
-
-        //pruebas
-        //`${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam}`,
-        //`<img src="https://crests.football-data.org/<${data[i].homeTeam.id}>.svg" alt="Logo"/>`
-        //  <img src = https://crests.football-data.org/<${data[i].homeTeam.id}>.svg> </img>
-        //document.createElement("img").src="https://crests.football-data.org/${data[i].homeTeam.id}.svg"
-        //<img class="logo" src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" />
-       
       ];
     }
 
@@ -42,6 +33,8 @@ function generateTable(table, data, type) {
       let cell = document.createElement("td");
       cell.innerHTML = array_type[j];
       row.appendChild(cell);
+      
+
     }
 
     table.appendChild(row);
@@ -49,9 +42,3 @@ function generateTable(table, data, type) {
 }
 
 
-// Funcion filtros
-
-function filter (){
-  
-
-}
