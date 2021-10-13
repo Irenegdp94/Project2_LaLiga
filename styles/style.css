@@ -1,3 +1,22 @@
 .logo {
     height: 50px;
 }
+
+.buttons-red{
+    color: white;
+    background-color: red;
+}
+
+.buttons-green{
+    color: white;
+    background-color: green;
+}
+
+.buttons-gray{
+    color: white;
+    background-color: gray;
+}
+
+.padding{
+    padding-left: 10px;
+}

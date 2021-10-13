@@ -5,3 +5,6 @@ let type_PR = 'PR';
 
 
 generateTable(table_PR,data_PR,type_PR)
+
+//Para los filtros
+let nameEQ = document.getElementById("inputEQ");

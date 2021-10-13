@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
+  <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             
@@ -37,6 +38,35 @@
         </div>
       </nav>
 
+      <!-- Filtros -->
+      <label class="form-group" for="inputEQ">Equipo</label>
+      <input type="text" class="form-group" name="inputEQ" id="inputEQ">
+
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <div class="padding">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+          <label class="btn btn-outline-primary" for="btnradio1">Todos</label>
+        </div>
+
+      <div class="padding">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn btn-success" for="btnradio2">Ganados</label>
+      </div>
+
+      <div class="padding">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+        <label class="btn btn-danger" for="btnradio3">Perdidos</label>
+      </div>
+
+      <div class="padding">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+        <label class="btn btn-warning" for="btnradio4">Empatados</label>
+      </div>
+
+      </div>
+
+
+      <!-- Tabla -->
       <table class="table table-striped">
         <thead>
           <tr>
