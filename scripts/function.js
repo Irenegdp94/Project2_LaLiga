@@ -1,8 +1,5 @@
 // Genera las filas de la tabla
 function generateTable(table, data, type) {
-  //console.log(type)
-  // console.log(table)
-  //console.log(data)
   for (let i = 0; i < data.length; i++) {
     let row = document.createElement("tr");
 
@@ -20,12 +17,11 @@ function generateTable(table, data, type) {
         data[i].points,
       ];
     } else if (type == "PR") {
-      console.log(data[i].homeTeam.id)
       array_type = [
         data[i].homeTeam.name,
-        `<img src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" alt="Logo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/${data[i].awayTeam.id}.svg" alt="Logo"/>`,
-        data[i].awayTeam.name
-
+        //`<img src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" class="logo" alt="Logo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/${data[i].awayTeam.id}.svg" class="logo" alt="Logo"/>`,
+        `${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam}`,
+        data[i].awayTeam.name,
       ];
     }
 
@@ -33,12 +29,62 @@ function generateTable(table, data, type) {
       let cell = document.createElement("td");
       cell.innerHTML = array_type[j];
       row.appendChild(cell);
-      
-
     }
 
     table.appendChild(row);
   }
 }
 
+function filter_PR(data, nameEQ, value) {
+  let filter_data_ALL = [];
+  let filter_data_DRAW = [];
+  let filter_data_WINNER = [];
+  let filter_data_LOST = [];
 
+  if (value == "TODOS") {
+    for (let i = 0; i < data.length; i++) {
+      if (
+        nameEQ.value == data[i].homeTeam.name ||
+        nameEQ.value == data[i].awayTeam.name
+      ) {
+        filter_data_ALL.push(data[i]); //todos los partidos de un equipo
+      }
+    }
+    return filter_data_ALL;
+  } else if (value == "EMPATADOS") {
+    for (let i = 0; i < data.length; i++) {
+      let result_match = data[i].score.winner;
+      if (
+        (result_match == "DRAW" && nameEQ.value == data[i].homeTeam.name) ||
+        (result_match == "DRAW" && nameEQ.value == data[i].awayTeam.name)
+      ) {
+        filter_data_DRAW.push(data[i]); //todos los partidos de un equipo
+      }
+    }
+    return filter_data_DRAW;
+  } else if (value == "GANADOS") {
+    for (let i = 0; i < data.length; i++) {
+      let result_match = data[i].score.winner;
+      if (
+        (result_match == "HOME_TEAM" &&
+          nameEQ.value == data[i].homeTeam.name) ||
+        (result_match == "AWAY_TEAM" && nameEQ.value == data[i].awayTeam.name)
+      ) {
+        filter_data_WINNER.push(data[i]); //partidos ganados de un equipo}
+      }
+    }
+    return filter_data_WINNER;
+  } else if (value == "PERDIDOS") {
+    for (let i = 0; i < data.length; i++) {
+      let result_match = data[i].score.winner;
+      if (
+        (result_match == "HOME_TEAM" &&
+          nameEQ.value == data[i].awayTeam.name) ||
+        (result_match == "AWAY_TEAM" && nameEQ.value == data[i].homeTeam.name)
+      ) {
+        filter_data_LOST.push(data[i]); //partidos perdidos de un equipo
+      }
+    }
+    return filter_data_LOST;
+  }
+}

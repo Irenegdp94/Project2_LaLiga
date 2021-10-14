@@ -1,5 +1,5 @@
 // Creamos la tabla
-let table_CL = document.getElementById("T-clasificacion");
+let table_CL = document.getElementById("Tbody-clasificacion");
 let data_CL = clasificacion.standings[0].table;
 let type_CL = 'CL';
 
