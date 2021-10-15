@@ -20,12 +20,15 @@ function generateTable(table, data, type) {
     } else if (type == "PR") {
       array_type = [
         data[i].homeTeam.name,
-        //`<img src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" class="escudo" alt="Logo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/${data[i].awayTeam.id}.svg" class="escudo" alt="escudo"/>`,
+        //`<img src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" class="escudo" alt="escudo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/${data[i].awayTeam.id}.svg" class="escudo" alt="escudo"/>`,
         `${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam}`,
         data[i].awayTeam.name,
       ];
     } else if (type == "ES") {
-      array_type = [i + 1, data[i].name, data[i].mean];
+      array_type = [i + 1, 
+        //`<img src="https://crests.football-data.org/${data[i].id}.svg" class="escudo" alt="escudo"/> ${data[i].name}`,
+        data[i].name, 
+        data[i].mean];
     }
 
     for (let j = 0; j < array_type.length; j++) {
@@ -91,22 +94,3 @@ function filter_PR(data, nameEQ, value) {
     return filter_data_LOST;
   }
 }
-
-let rankingUrl =
-  "https://api.football-data.org/v2/competitions/2014/standings?season=2021";
-
-let info = fetch(rankingUrl, {
-  method: "GET",
-  headers: {
-    "X-Auth-Token": "928dd4e062654c76833a1d9ebc7eb435",
-  },
-})
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    return data;
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
