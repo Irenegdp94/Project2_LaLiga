@@ -21,6 +21,26 @@
     padding-left: 10px;
 }
 
-.logo {
+.escudo {
     height: 20px;
+}
+
+.reload {
+    height: 20px;
+
+}
+
+.filtro{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.padding_top {
+    padding-top: 100px;
+}   
+
+.body{
+    display: flex;
+    flex-direction:column;
+    justify-content:space-around;
 }
