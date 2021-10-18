@@ -26,6 +26,7 @@ async function get_info_statistics() {
 }
 
 async function init() {
+  
   let data_PR = await get_info_statistics();
   for (let i = 0; i < data_PR.length; i++) {
     let name_eq_HOME = data_PR[i].homeTeam.name;
@@ -40,7 +41,9 @@ async function init() {
       if (array_obj_team[j].name == name_eq_HOME) {
         stay_HOME = true;
         array_obj_team[j].goals += goals_eq_HOME;
-        array_obj_team[j].matches += 1;
+        if(goals_eq_HOME != null){
+          array_obj_team[j].matches += 1;
+        }
         array_obj_team[j].mean = (
           array_obj_team[j].goals / array_obj_team[j].matches
         ).toFixed(2);
@@ -49,7 +52,9 @@ async function init() {
       if (array_obj_team[j].name == name_eq_AWAY) {
         stay_AWAY = true;
         array_obj_team[j].goals += goals_eq_AWAY;
-        array_obj_team[j].matches += 1;
+        if(goals_eq_HOME != null){
+          array_obj_team[j].matches += 1;
+        }
         array_obj_team[j].mean = (
           array_obj_team[j].goals / array_obj_team[j].matches
         ).toFixed(2);
@@ -72,6 +77,7 @@ async function init() {
   array_ordenado_cortado = array_ordenado.splice(0, 5);
 
   generateTable(table_ES, array_ordenado_cortado, type_ES);
+  waiting.innerHTML = "";
 }
 
 init()

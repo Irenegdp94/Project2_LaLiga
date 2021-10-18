@@ -25,6 +25,7 @@ async function get_info_matches() {
 }
 
 async function init() {
+  
   let data_PR = await get_info_matches();
   generateTable(table_PR, data_PR, type_PR);
   ButtonALL.addEventListener("click", function () {
@@ -73,12 +74,14 @@ async function init() {
     nameEQ.value = "";
     generateTable(table_PR, data_PR, type_PR);
   });
+  waiting.innerHTML = "";
 }
 /////////////////////////////////////////////////////////////
 
 // variables para la tabla
 let table_PR = document.getElementById("Tbody-partidos");
 let type_PR = "PR";
+let waiting = document.getElementById("waiting");
 
 // variables para los filtros
 let ButtonALL = document.getElementById("ButtonALL");

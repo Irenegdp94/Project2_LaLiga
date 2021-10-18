@@ -41,8 +41,8 @@
       </nav>
 
       <!-- Tabla de clasificacion -->
-      <table class="table table-striped">
-        <thead>
+      <table class="table table-hover">
+        <thead class="thead-dark">
           <tr>
             <th scope="col">Posición</th>
             <th scope="col">Club</th>
@@ -64,10 +64,16 @@
         </tbody>
       </table>
 
+      <div id="waiting" class="d-flex justify-content-center">
+        <span class="sr-only">Loading... </span>
+        <div class="spinner-border text-success" role="status">
+        </div> 
+      </div>
+
 
 
       <script src="./scripts/function.js"></script>
       <script src="./scripts/logica_clasificacion.js"></script>
-
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

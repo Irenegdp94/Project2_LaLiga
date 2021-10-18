@@ -1,46 +1,107 @@
 .logo {
-    height: 50px;
+  height: 50px;
 }
 
-.buttons-red{
-    color: white;
-    background-color: red;
-}
-
-.buttons-green{
-    color: white;
-    background-color: green;
-}
-
-.buttons-gray{
-    color: white;
-    background-color: gray;
-}
-
-.padding{
-    padding-left: 10px;
+.padding {
+  padding-left: 10px;
 }
 
 .escudo {
-    height: 20px;
+  height: 20px;
 }
 
 .reload {
-    height: 20px;
+  height: 20px;
+}
+
+.filtro {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.iframe {
+  height: 25%;
+  border: none;
+}
+
+.news_container {
+  display: flex;
+  flex-wrap: wrap;
 
 }
 
-.filtro{
-    display:flex;
-    justify-content:flex-end;
+.div_img {
+  display: flex;
+  justify-content: center;
+  background-color:black
+  
+
 }
 
-.padding_top {
-    padding-top: 100px;
-}   
+.image-new {
+  height: 25vh;
+  background-size: cover;
+  /* border: solid 1px white; */
 
-.body{
-    display: flex;
-    flex-direction:column;
-    justify-content:space-around;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+p{
+  color:whitesmoke;
+  font-size: 12px;
+}
+
+@media (max-width: 770px) { 
+  .div_container{
+    border: solid 10px white;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    
+    
+  }
+}
+
+@media (min-width: 771px) and (max-width: 1159px) {
+  .div_container{
+    border: solid 10px white;
+    width: 50%;
+    padding: 10px;
+    background-color: black;
+  }
+  
+} 
+
+@media (min-width: 1160px) { /*pantalla grande*/
+  .div_container{
+    border: solid 10px white;
+    width: 33%;
+    padding: 10px;
+    background-color: black;
+    
+    
+  }
+}
+
+
+.button_{
+  text-align: center;
+  background-color: rgb(206, 252, 180);
+  border: none;
+
+
+  
+}
+
+.enlace{
+  text-decoration: none;
+  color: black;
+  
+  
 }

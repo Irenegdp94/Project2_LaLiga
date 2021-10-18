@@ -25,6 +25,7 @@ async function get_info_standings() {
 async function init() {
   let data_CL = await get_info_standings();
   generateTable(table_CL, data_CL, type_CL);
+  waiting.innerHTML = "";
 }
 
 // Creamos la tabla

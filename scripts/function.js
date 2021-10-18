@@ -18,12 +18,22 @@ function generateTable(table, data, type) {
         data[i].points,
       ];
     } else if (type == "PR") {
-      array_type = [
-        data[i].homeTeam.name,
-        //`<img src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" class="escudo" alt="escudo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/${data[i].awayTeam.id}.svg" class="escudo" alt="escudo"/>`,
-        `${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam}`,
-        data[i].awayTeam.name,
-      ];
+      if (data[i].score.fullTime.homeTeam == null){
+        array_type = [
+          data[i].homeTeam.name,
+          "PENDIENTE",
+          data[i].awayTeam.name,
+        ];
+        
+      }else {
+        array_type = [
+          data[i].homeTeam.name,
+          //`<img src="https://crests.football-data.org/${data[i].homeTeam.id}.svg" class="escudo" alt="escudo"/> ${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam} <img src="https://crests.football-data.org/${data[i].awayTeam.id}.svg" class="escudo" alt="escudo"/>`,
+          `${data[i].score.fullTime.homeTeam} - ${data[i].score.fullTime.awayTeam}`,
+          data[i].awayTeam.name,
+        ];
+      }
+
     } else if (type == "ES") {
       array_type = [i + 1, 
         //`<img src="https://crests.football-data.org/${data[i].id}.svg" class="escudo" alt="escudo"/> ${data[i].name}`,
