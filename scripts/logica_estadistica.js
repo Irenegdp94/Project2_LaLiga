@@ -28,6 +28,7 @@ async function get_info_statistics() {
 async function init() {
   
   let data_PR = await get_info_statistics();
+  
   for (let i = 0; i < data_PR.length; i++) {
     let name_eq_HOME = data_PR[i].homeTeam.name;
     let id_eq_HOME = data_PR[i].homeTeam.id;
@@ -52,7 +53,7 @@ async function init() {
       if (array_obj_team[j].name == name_eq_AWAY) {
         stay_AWAY = true;
         array_obj_team[j].goals += goals_eq_AWAY;
-        if(goals_eq_HOME != null){
+        if(goals_eq_AWAY != null){
           array_obj_team[j].matches += 1;
         }
         array_obj_team[j].mean = (
@@ -62,12 +63,24 @@ async function init() {
     }
 
     if (stay_HOME == false) {
-      let a = { name: name_eq_HOME, goals: goals_eq_HOME, matches: 0, mean: 0, id: id_eq_HOME };
+      let a
+      if (goals_eq_HOME != null){
+        a = { name: name_eq_HOME, goals: goals_eq_HOME, matches: 1, mean: 0, id: id_eq_HOME };
+      }else{
+        a = { name: name_eq_HOME, goals: goals_eq_HOME, matches: 0, mean: 0, id: id_eq_HOME };
+      }
+      
       array_obj_team.push(a);
     }
 
     if (stay_AWAY == false) {
-      let b = { name: name_eq_AWAY, goals: goals_eq_AWAY, matches: 0, mean: 0, id: id_eq_AWAY };
+      let b
+      if (goals_eq_AWAY != null){
+        b = { name: name_eq_AWAY, goals: goals_eq_AWAY, matches: 1, mean: 0, id: id_eq_AWAY };
+      }else{
+        b = { name: name_eq_AWAY, goals: goals_eq_AWAY, matches: 0, mean: 0, id: id_eq_AWAY };
+      }
+      
       array_obj_team.push(b);
     }
   }

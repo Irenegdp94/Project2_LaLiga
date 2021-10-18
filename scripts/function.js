@@ -38,6 +38,8 @@ function generateTable(table, data, type) {
       array_type = [i + 1, 
         //`<img src="https://crests.football-data.org/${data[i].id}.svg" class="escudo" alt="escudo"/> ${data[i].name}`,
         data[i].name, 
+        data[i].goals,
+        data[i].matches,
         data[i].mean];
     }
 
